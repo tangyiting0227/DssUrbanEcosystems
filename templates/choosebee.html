@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+{% block body %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+
+ .container-fluid {
+      width: 100vw;
+      margin: auto;
+      background-color: black;
+      height: 100vh;
+      color: white;
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: black;
+      position: relative;
+        width: 100vw;
+        height: 7vh;
+    }
+
+    #myLinks {
+      display: none;
+        position: fixed;
+        top: 7vh;
+        width: 100%;
+        height: 14vh;
+        background-color: gray;
+        left: 0;
+        
+    }
+
+    #myLinks>a{
+        color: white;
+        display: block;
+        width: 100%;
+        height: 50%;
+        left: 0;
+        text-align: left;
+        padding: 2.25vh 0 2.25vh 2vw;
+        justify-content: center;
+        font-size: 2.5vh;
+    }
+    
+    
+
+    .topnav a {
+      color: white;
+      padding: 1.7vh 0px;
+      text-decoration: none;
+      font-size: 17px;
+      display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .topnav a.icon {
+      background: black;
+      display: block;
+/*      position: absolute;*/
+      right: 0;
+      top: 0;
+        width: 100%;
+        text-align: center;
+        
+    }
+
+    .topnav a:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .active {
+      background-color: rgba(247,202,24,1);
+      color: white;
+        text-align: center;
+    }
+    
+   #whole {
+        width: 100vw;
+        height: 93vh;
+        padding-left: 9vw;
+        padding-right: 11vw;
+    }
+    
+    #Dutchbeetext {
+         padding-top: 2vh;
+        color: rgba(247,202,24,1);
+        font-size:110%;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    #beename_1{
+        font-size: 10px;
+    }
+    
+    #level1_list {
+        padding-right: 2vw;
+    }
+    
+
+</style>
+
+
+<!-- Simulate a smartphone / tablet -->
+<div class="container-fluid">
+
+<!-- Top Navigation Menu -->
+ <div class="row">
+        <div class="topnav">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-2">
+                <a class="backicon"  href="{{ url_for('rolechoose') }}" style="font-size: 1.5em;font-weight: 800;">&#10508;</a>
+        </div>
+      <div class="col-xs-8 col-sm-8 col-md-8 col-8" style="padding-left: 0px; padding-right: 0px; height: 7vh;">
+            <a href="#home" class="active" id="title">Choose Your Bee Character</a>
+    </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-2">
+      
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+                </div>
+            
+            
+    </div>  
+    </div>
+
+<!-- Bee list -->
+<div id="Beelist">
+    <div class="row" id="whole">
+        <div class="col-xs-12" id="Beelist_container1">
+            <!-- level 1 -->
+           <div class="row" id="Dutchbeetext" style="font-weight:bold; color:rgba(247,202,24, 1)"> The Bee Species in the Netherlands</div>
+            <div class="row" id="level1_list">
+                <div class="col-xs-4">
+                    <div class="hexagon hexagon1">
+                        <div class="hexagon-in1"><img src="{{url_for('static', filename='img/Beespecies/Honey Bee.jpg')}}" width="240px" height="240px" class="hexagon-in2"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="hexagon hexagon1">
+                        <div class="hexagon-in1"><img src="{{url_for('static', filename='img/Beespecies/Bumble Bee.jpg')}}" width="340px" height="240px" class="hexagon-in2"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="hexagon hexagon1">
+                        <div class="hexagon-in1"><img src="{{url_for('static', filename='img/Beespecies/Groove Bee.jpg')}}" width="240px" height="240px" class="hexagon-in2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="beename_1">
+                <div class="col-xs-4 center-block text-center">Honey Bee</div>
+                <div class="col-xs-4 center-block text-center">Bumble Bee</div>
+                <div class="col-xs-4 center-block text-center">Groove Bee</div>
+            </div>
+            <!-- level 2 -->
+            
+            <div class="row" id="level1_list">
+                <div class="col-xs-4">
+                    <div class="hexagon hexagon1">
+                        <div class="hexagon-in1"><img src="{{url_for('static', filename='img/Beespecies/Mason Bee.jpg')}}" width="240px" height="240px" class="hexagon-in2"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="hexagon hexagon1">
+                        <div class="hexagon-in1"><img src="{{url_for('static', filename='img/Beespecies/Wallpaper Bee.jpg')}}" width="240px" height="240px" class="hexagon-in2"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="hexagon hexagon1">
+                        <div class="hexagon-in1"><img src="{{url_for('static', filename='img/Beespecies/Mask Bee.jpg')}}" width="240px" height="240px" class="hexagon-in2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="beename_1">
+                <div class="col-xs-4 center-block text-center">Mason Bee</div>
+                <div class="col-xs-4 center-block text-center">Wallpaper Bee</div>
+                <div class="col-xs-4 center-block text-center">Mask Bee</div>
+            </div>
+            <!-- level 3 -->
+        
+            <div class="row" id="level1_list">
+                <div class="col-xs-4">
+                    <div class="hexagon hexagon1">
+                        <div class="hexagon-in1"><img src="{{url_for('static', filename='img/Beespecies/Little Bee.jpg')}}" width="240px" height="240px" class="hexagon-in2"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="hexagon hexagon1">
+                        <div class="hexagon-in1"><img src="{{url_for('static', filename='img/Beespecies/Cuckoo Bee.jpg')}}" width="240px" height="240px" class="hexagon-in2"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="hexagon hexagon1">
+                        <div class="hexagon-in1"><img src="{{url_for('static', filename='img/Beespecies/LargeWool Bee.jpg')}}" width="240px" height="240px" class="hexagon-in2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="beename_1">
+                <div class="col-xs-4 center-block text-center">Little Bee</div>
+                <div class="col-xs-4 center-block text-center">Cuckoo Bee</div>
+                <div class="col-xs-4 center-block text-center">LargeWool Bee</div>
+            </div>
+            <!--End of level 3-->
+        </div>  
+     
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-12">
+            <div id="myLinks">
+        
+                <a href="{{url_for('rolechoose')}}">Logout</a>
+        <a href="https://xd.adobe.com/view/9a9f1437-ca4f-45b2-433b-6e0755dfe5ea-ecae/?fullscreen&hints=off">Test Clickable Prototype</a>
+            </div>
+        </div>
+    </div>
+
+<!-- End smartphone / tablet look -->
+</div>
+    
+
+<script>
+    function myFunction() {
+      var x = document.getElementById("myLinks");
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+    
+    $("img").click(function(){ //select all image tags as an object
+        //action to this object when the object is clicked
+        var full_path = $(this).attr("src");
+        var splited_str = full_path.split("/");
+        var orginal_name = splited_str[splited_str.length - 1];
+        var img_name = orginal_name.replace("%20", " ");
+        console.log(img_name);
+        $.getJSON($SCRIPT_ROOT + '/beedatatransfer/',
+                  {img_name: img_name}, function(data) {
+            console.log(data);
+            console.log($SCRIPT_ROOT + '/beestatus/');
+            window.location.href = $SCRIPT_ROOT + '/beestatus/';
+        }
+        );
+    })
+</script>
+
+
+{% endblock %}

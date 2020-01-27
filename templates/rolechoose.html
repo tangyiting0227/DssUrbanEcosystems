@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block body %}
+
+<style>
+#container2{
+    width: 100vw;
+    height: 100vh;
+}
+#background {
+    width: 100vw;
+    height: 100vh;
+}
+#popup{
+    position:relative;
+    width: 70vw;
+    height: 40vh;
+    background-color: rgba(247,202,24,1); 
+    top: -84vh;
+    left:15vw;
+    border-radius: 5%;
+}
+    #t1{
+        padding-top: 4vh;
+        padding-left: 10vw;
+        padding-right: 11vw;
+        width: 80vw;
+        height: auto;
+        color: white;
+        font-weight: bold;
+    }
+    #name{
+        padding-top: 2vh;
+        color: white;
+        font-weight: bold;
+    }
+    #p1{
+        padding-top: 4vh;
+    }
+
+     #name>.col-xs-6:first-child {padding-right: 0;}
+    #name>.col-xs-6:last-child {padding-left: 2vw;}
+    
+    #p1>.col-xs-6:first-child {padding-left: 2vw;padding-right: 0;}
+    #p1>.col-xs-6:last-child {padding-left: 2vw;padding-right: 2vw;}
+    
+</style>
+
+<div id="container2">
+    <img id="background" src="{{url_for('static', filename='img/building2.png')}}">
+    <div id="popup">
+        <div class="row" id="t1"><p>Please Choose Your Role in the Game!</p>
+        
+        </div>
+        <div class="row center-block text-center" id="p1">
+            <div class="col-xs-6">
+                    <a class="pic"  href="{{ url_for( 'gardenerlogin') }}"><img src="{{url_for('static', filename='img/logingardener.png')}}" width="80vw" height="90vh" id="pic"></a>
+            </div>
+            <div class="col-xs-6">
+                   <a class="pic"  href="{{ url_for( 'citizenlogin') }}"><img src="{{url_for('static', filename='img/logincitizen.png')}}" width="80vw" height="90vh" id="pic"></a>
+            </div>
+        </div>
+        <div class="row text-center" id="name">
+                 <div class="col-xs-6">Gardeners</div>
+                 <div class="col-xs-6">Pollinators</div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

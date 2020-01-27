@@ -1,0 +1,879 @@
+{% extends "base.html" %}
+{% block body %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+
+    .mobile-container {
+      width: 100vw;
+      margin: auto;
+      background-color: #333;
+      height: 100vh;
+      color: white;
+      border-radius: 10px;
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: black;
+      position: relative;
+        width: 100vw;
+        height: 7vh;
+    }
+
+    #myLinks {
+      display: none;
+        position: fixed;
+        top: 7vh;
+        width: 100%;
+        height: 14vh;
+        background-color: gray;
+        left: 0;
+        
+    }
+
+    #myLinks>a{
+        color: white;
+        display: block;
+        width: 100%;
+        height: 50%;
+        left: 0;
+        text-align: left;
+        padding: 2.25vh 0 2.25vh 2vw;
+        justify-content: center;
+        font-size: 2.5vh;
+    }
+    
+    
+
+    .topnav a {
+      color: white;
+      padding: 1.7vh 0px;
+      text-decoration: none;
+      font-size: 17px;
+      display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .topnav a.icon {
+      background: black;
+      display: block;
+/*      position: absolute;*/
+      right: 0;
+      top: 0;
+        width: 100%;
+        text-align: center;
+        
+    }
+
+    .topnav a:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .active {
+      background-color: rgba(247,202,24,1);
+      color: white;
+        text-align: center;
+    }
+    
+    #hexygon-container{
+    width: 10rem;
+    height: 10rem;
+    padding-left:100px;
+    padding-top:20px;
+}
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-moz-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-o-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+  
+    
+    button#btn {
+    -webkit-animation: blink 2s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation: blink 2s;
+    -moz-animation-iteration-count: infinite;
+    -o-animation: blink 2s;
+    -o-animation-iteration-count: infinite;
+}
+   
+    #Helleborus-hexygon-child-1,
+    #Helleborus-hexygon-child-2,
+    #Helleborus-hexygon-child-3,
+    #Helleborus-hexygon-child-4, 
+    #Helleborus-hexygon-child-5,
+    #Helleborus-hexygon-child-6,
+    #Pansy-hexygon-child-1,
+    #Pansy-hexygon-child-2,
+    #Pansy-hexygon-child-3,
+    #Pansy-hexygon-child-4,
+    #Pansy-hexygon-child-5,
+    #Pansy-hexygon-child-6 {
+        visibility: hidden;
+    }
+    
+    
+/*
+    #quiz7, {
+        width: 50vw;
+        height: 50vh;
+    }
+*/
+    
+</style>
+
+
+<!-- Simulate a smartphone / tablet -->
+<div class="container-fluid">
+
+    <!-- Top Navigation Menu -->
+    
+    <div class="row">
+        <div class="topnav">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-2">
+                <button type="button" class="backicon"  onclick="window.location.href='{{ url_for( 'beestatus') }}'"><img src="{{url_for('static', filename='img/backicon.png')}}" ></button>
+        </div>
+      <div class="col-xs-8 col-sm-8 col-md-8 col-8" style="padding-left: 0px; padding-right: 0px; height: 7vh;">
+            <a href="#home" class="active" id="title">Artificial Flower Map</a>
+    </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-2">
+      
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+                </div>
+            
+            
+    </div>  
+    </div>
+    <!-- Bee list -->
+    <div class="row">
+        <div id="Beelist">
+
+            <div id="map_img">
+
+                <img  src="{{url_for('static', filename='img/greenroof.png')}}">
+  
+
+
+                <div class="popup">
+                    <button type="button" id="btn"><img src="{{url_for('static', filename='img/ArtificialFlower.png')}}" id="nobee"></button>
+                    <div id="dialog1" title="Choose one flower on this rooftop!">
+                        <p style="font-weight: 600">The flowers on this rooftop:</p>
+                        <div class="row center-block text-center">
+                            <div class="col-xs-6">
+                                <div class="row center-block">
+                                    <div class="hexagon hexagon2">
+                                        <div class="hexagon-in1"><img src="{{url_for('static', filename='img/flowerimage/Helleborus.jpg')}}" width="240px" height="240px" id="Helleborus" class="hexagon-in2"></div>
+                                    </div>
+                                 </div>
+                                 <div class="row text-center">Helleborus</div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="row center-block">
+                                    <div class="hexagon hexagon2">
+                                        <div class="hexagon-in1"><img src="{{url_for('static', filename='img/flowerimage/Pansy.jpg')}}" width="240px" height="240px" id="Pansy" class="hexagon-in2"></div>
+                                   </div>
+                                    <div class="row text-center">Pansy</div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                     <div id="dialog2-Helleborus" title="Your {{img_name}} got nectar!">
+                       <div class="row">
+                           <div id="hexygon-container">
+                                <img id="Helleborus-hexygon-child-1" src="{{url_for('static', filename='img/flowerimage/Helleborus.jpg')}}" >
+                                <img id="Helleborus-hexygon-child-2" src="{{url_for('static', filename='img/flowerimage/Helleborus.jpg')}}" >
+                                <img id="Helleborus-hexygon-child-3" src="{{url_for('static', filename='img/flowerimage/Helleborus.jpg')}}" >
+                                <img id="Helleborus-hexygon-child-4" src="{{url_for('static', filename='img/flowerimage/Helleborus.jpg')}}" >
+                                <img id="Helleborus-hexygon-child-5" src="{{url_for('static', filename='img/flowerimage/Helleborus.jpg')}}" >
+                                <img id="Helleborus-hexygon-child-6" src="{{url_for('static', filename='img/flowerimage/Helleborus.jpg')}}" >            
+                            </div> 
+                        </div>
+                         <p>Congratulations! Your {{img_name}} got 10 grams of nectar from Helleborus! You also got one fragment of Helleborus!</p>
+                    </div>
+                    <div id="dialog2-Pansy" title="Your {{img_name}} got nectar!">
+                       <div class="row">
+                           <div id="hexygon-container">
+                                <img id="Pansy-hexygon-child-1" src="{{url_for('static', filename='img/flowerimage/Pansy.jpg')}}" >
+                                <img id="Pansy-hexygon-child-2" src="{{url_for('static', filename='img/flowerimage/Pansy.jpg')}}" >
+                                <img id="Pansy-hexygon-child-3" src="{{url_for('static', filename='img/flowerimage/Pansy.jpg')}}" >
+                                <img id="Pansy-hexygon-child-4" src="{{url_for('static', filename='img/flowerimage/Pansy.jpg')}}" >
+                                <img id="Pansy-hexygon-child-5" src="{{url_for('static', filename='img/flowerimage/Pansy.jpg')}}" >
+                                <img id="Pansy-hexygon-child-6" src="{{url_for('static', filename='img/flowerimage/Pansy.jpg')}}" >            
+                            </div> 
+                        </div>
+                         <p>Congratulations! Your {{img_name}} got 10 grams of nectar from Pansy! You also got one fragment of Pansy!</p>
+                    </div>
+
+                    <div id="dialog4" title="You cannot visit this
+                    rooftop now!">Sorry! The pollinators are not visiting this garden now, you can only check it when
+                    it changes to bees' icon in the map.</div>
+
+    <!--                <div id="dialog2" title="Your honey bee got a fragment!">Congratulations! You got a fragment of Blacked Eye Susan and you get 10 points!</div>-->
+                </div>
+    <!--            quiz1-->
+                <div class="popup">
+                    <button type="button" id="quiz1btn"><img src="{{url_for('static', filename='img/quizmark.png')}}" height="40" width="40" class="quizicon"></button>
+                    <form id="quiz1" title="Do you know...">
+                        <p>How many bee species can be found in the Netherlands?</p>
+                        <input type="radio" name="q1" value="1">
+                        <label for="a1">128</label><br/>
+                        <input type="radio" name="q1" value="2">
+                        <label for="a2">359</label><br/>
+                        <input type="radio" name="q1" value="3">
+                        <label for="a3">65</label>
+                    </form>
+                    <div id="r1" title="Your answer is correct!">Congratulations! Your {{img_name}} got one flower fragment!</div>
+                    <div id="f1" title="Oh no...">Sorry, your answer is false! There are 359 species can be found in the Nertherlands.</div>
+                </div>
+            <!--            quiz2-->
+               <div class="popup">
+                    <button type="button" id="quiz2btn"><img src="{{url_for('static', filename='img/quizmark.png')}}" height="40" width="40" class="quizicon"></button>
+                    <form id="quiz2" title="Do you know...">
+                        <p>How many bee species are found in Amsterdam?</p>
+                        <input type="radio" name="q2" value="1">
+                        <label for="a1">61</label><br/>
+                        <input type="radio" name="q2" value="2">
+                        <label for="a2">25</label><br/>
+                        <input type="radio" name="q2" value="3">
+                        <label for="a3">156</label>
+                    </form>
+                    <div id="r2" title="Your answer is correct!">Congratulations! Your {{img_name}} got one flower fragment!</div>
+                    <div id="f2" title="Oh no...">Sorry, your answer is false! There are 61 species are found in Amsterdam.</div>
+                </div>
+
+                 <!--            quiz3-->
+                <div class="popup">
+                    <button type="button" id="quiz3btn"><img src="{{url_for('static', filename='img/quizmark.png')}}" height="40" width="40" class="quizicon"></button>
+                    <form id="quiz3" title="Do you know...">
+                        <p>Which among the following colours will attract the bees most?</p>
+                        <input type="radio" name="q3" value="1">
+                        <label for="a1">Red</label><br/>
+                        <input type="radio" name="q3" value="2">
+                        <label for="a2">Yellow</label><br/>
+                        <input type="radio" name="q3" value="3">
+                        <label for="a3">Pink</label>
+                    </form>
+                    <div id="r3" title="Your answer is correct!">Congratulations! Your {{img_name}} got one flower fragment!</div>
+                    <div id="f3" title="Oh no...">Sorry, your answer is false! Yellow will attract the bees most.</div>
+                </div>
+                 <!--            quiz4-->
+                <div class="popup">
+                    <button type="button" id="quiz4btn"><img src="{{url_for('static', filename='img/quizmark.png')}}" height="40" width="40" class="quizicon"></button>
+                    <form id="quiz4" title="Do you know...">
+                        <p>How many dutch bee species are seriously endangered? </p>
+                        <input type="radio" name="q4" value="1">
+                        <label for="a1">85</label><br/>
+                        <input type="radio" name="q4" value="2">
+                        <label for="a2">139</label><br/>
+                        <input type="radio" name="q4" value="3">
+                        <label for="a3">30</label>
+                    </form>
+                    <div id="r4" title="Your answer is correct!">Congratulations! Your {{img_name}} got one flower fragment!</div>
+                    <div id="f4" title="Oh no...">Sorry, your answer is false! There are 30 dutch bee species care seriously endangered.</div>
+                </div>
+                 <!--            quiz5-->
+                <div class="popup">
+                    <button type="button" id="quiz5btn"><img src="{{url_for('static', filename='img/quizmark.png')}}" height="40" width="40" class="quizicon"></button>
+                    <form id="quiz5" title="Do you know...">
+                        <p>What does the artificial flower of the gardeners do? </p>
+                        <input type="radio" name="q5" value="1">
+                        <label for="a1">Bee detection</label><br/>
+                        <input type="radio" name="q5" value="2">
+                        <label for="a2">Connect rooftop owners and other citizens</label><br/>
+                        <input type="radio" name="q5" value="3">
+                        <label for="a3">Attract bees</label><br/>
+                        <input type="radio" name="q5" value="4">
+                        <label for="a4">All of the above </label>
+                    </form>
+                    <div id="r5" title="Your answer is correct!">Congratulations! Your {{img_name}} got one flower fragment!</div>
+                    <div id="f5" title="Oh no...">Sorry, your answer is false! The artificial flower of the gardeners can attract and detect bees. It also can connect rooftop owners and other citizens who can create the biodiversity city together. </div>
+                </div>
+                 <!--            quiz6-->
+                <div class="popup">
+                    <button type="button" id="quiz6btn"><img src="{{url_for('static', filename='img/quizmark.png')}}" height="40" width="40" class="quizicon"></button>
+                    <form id="quiz6" title="Do you know...">
+                        <p>What will the City Buzz application do? </p>
+                        <input type="radio" name="q6" value="1">
+                        <label for="a1">Help bees thrive in Amsterdam</label><br/>
+                        <input type="radio" name="q6" value="2">
+                        <label for="a2">Create a bee friendly community</label><br/>
+                        <input type="radio" name="q6" value="3">
+                        <label for="a3">Encourage the rooftop owners to have a biodiverse garden</label><br/>
+                        <input type="radio" name="q6" value="4">
+                        <label for="a4">All of the above </label>
+                    </form>
+                    <div id="r6" title="Your answer is correct!">Congratulations! Your {{img_name}} got one flower fragment!</div>
+                    <div id="f6" title="Oh no...">Sorry, your answer is false! The City Buzz application as a medium will encourage the rooftop owners to have a biodiverse garden, create a bee friendly community, then help bees thrive in Amsterdam.</div>
+                </div>
+                 <!--            quiz7-->
+                <div class="popup">
+                    <button type="button" id="quiz7btn"><img src="{{url_for('static', filename='img/quizmark.png')}}" height="40" width="40" class="quizicon"></button>
+                    <form id="quiz7" title="Do you know...">
+                        <p>Bees feed on?</p>
+                        <input type="radio" name="q7" value="1">
+                        <label for="a1">Pollens</label><br/>
+                        <input type="radio" name="q7" value="2">
+                        <label for="a2">Nectar</label><br/>
+                        <input type="radio" name="q7" value="3">
+                        <label for="a3">Both</label>
+                    </form>
+                    <div id="r7" title="Your answer is correct!">Congratulations! Your {{img_name}} got one flower fragment!</div>
+                    <div id="f7" title="Oh no...">Sorry, your answer is false! Bees feed on pollens and nectar.</div>
+                </div>
+                 <!--            quiz8-->
+                <div class="popup">
+                    <button type="button" id="quiz8btn"><img src="{{url_for('static', filename='img/quizmark.png')}}" height="40" width="40" class="quizicon"></button>
+                    <form id="quiz8" title="Do you know...">
+                        <p>Wild bees are usually solitary.</p>
+                        <input type="radio" name="q8" value="1">
+                        <label for="a1">True</label><br/>
+                        <input type="radio" name="q8" value="2">
+                        <label for="a2">False</label>
+                    </form>
+                    <div id="r8" title="Your answer is correct!">Congratulations! Your {{img_name}} got one flower fragment!</div>
+                    <div id="f8" title="Oh no...">Sorry, your answer is false! Wild bees are usually solitary.</div>
+                </div>
+                 <!--            quiz9-->
+                <div class="popup">
+                    <button type="button" id="quiz9btn"><img src="{{url_for('static', filename='img/quizmark.png')}}" height="40" width="40" class="quizicon"></button>
+                    <form id="quiz9" title="Do you know...">
+                        <p>What is the best way to help bees thrive?</p>
+                        <input type="radio" name="q9" value="1">
+                        <label for="a1">Planting variety of flowers in the green spaces</label><br/>
+                        <input type="radio" name="q9" value="2">
+                        <label for="a2">Installing bee hotels</label><br/>
+                        <input type="radio" name="q9" value="3">
+                        <label for="a3">Providing them with nectar</label>
+                    </form>
+                    <div id="r9" title="Your answer is correct!">Congratulations! Your {{img_name}} got one flower fragment!</div>
+                    <div id="f9" title="Oh no...">Sorry, your answer is false! Planting variety of flowers in the green spaces is the best way to help bees thrive.</div>
+                </div>
+                 <!--            quiz10-->
+                <div class="popup">
+                    <button type="button" id="quiz10btn"><img src="{{url_for('static', filename='img/quizmark.png')}}" height="40" width="40" class="quizicon"></button>
+                    <form id="quiz10" title="Do you know...">
+                        <p>Bees always sting.</p>
+                        <input type="radio" name="q10" value="1">
+                        <label for="a1">True</label><br/>
+                        <input type="radio" name="q10" value="2">
+                        <label for="a2">False</label>
+                    </form>
+                    <div id="r10" title="Your answer is correct!">Congratulations! Your {{img_name}} got one flower fragment!</div>
+                    <div id="f10" title="Oh no...">Sorry, your answer is false! There are 359 species can be found in the Nertherlands.</div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>  
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-12">
+            <div id="myLinks">
+        
+                <a href="{{url_for('rolechoose')}}">Logout</a>
+       <a href="https://xd.adobe.com/view/9a9f1437-ca4f-45b2-433b-6e0755dfe5ea-ecae/?fullscreen&hints=off">Test Clickable Prototype</a>
+            </div>
+        </div>
+    </div>
+    <div style="padding-left:18px" id="nav_bottom">
+
+    </div>
+    
+
+    <!-- End smartphone / tablet look -->
+</div>
+
+<script>
+    
+    
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+// open the popup
+    
+//$('#dialog1,#dialog2').dialog({
+//    autoOpen: false, modal: true, buttons: {
+//        close: function() {
+//            $('#dialog2').dialog('open');
+//        }
+//    }
+//});
+
+    function flowercollection(flower, collectiontype) {
+        $.getJSON($SCRIPT_ROOT + "/flowercollection/", {"flower": flower, "collectiontype":collectiontype})
+    }
+    var followers = ["Helleborus", "Pansy"]
+    function checkCollection(flowername) {
+        $.getJSON(
+            $SCRIPT_ROOT + "/checkCollection/",
+            {"checkCollection":"received"},
+            function(data){
+                if (data.flowers.length==0) {
+                    var chip = 1;
+                } else {
+                    var chip = data.flowers[flowername] + 1;
+                };
+                console.log(chip)
+                $("#" + flowername + "-hexygon-child-" +chip).css("visibility", "visible");
+            }  
+        )
+    }
+    
+    
+//nector
+$('#dialog1').dialog({
+    autoOpen: false, modal: true, buttons: {
+        close: function() {
+            $('#dialog1').dialog('close');
+        }
+    }
+});
+$('#Helleborus').click(function() {
+    $('#dialog2-Helleborus').dialog('open');
+    flowercollection("Helleborus", "bee");
+    checkCollection("Helleborus");
+});
+$('#Pansy').click(function() {
+    $('#dialog2-Pansy').dialog('open');
+    flowercollection("Pansy", "bee");
+    checkCollection("Pansy");
+});
+$('#dialog2-Helleborus').dialog({
+    autoOpen: false, modal: true, buttons: {
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#dialog2-Pansy').dialog({
+    autoOpen: false, modal: true, buttons: {
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#dialog4').dialog({
+    autoOpen: false, modal: true, buttons: {
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+
+    
+//quiz1
+$('#quiz1').dialog({
+    autoOpen: false, modal: true, buttons: {
+        submit: function() {
+            var check_answer = document.querySelector('input[name="q1"]:checked').value;
+             if(check_answer==2) {
+                $('#r1').dialog('open');// do sth if it is correct
+                flowercollection(followers[Math.floor(Math.random() * followers.length)], "quiz1");
+        } else {
+                $('#f1').dialog('open');// do sth if it is not correct
+        }},
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#r1').dialog({
+    autoOpen: false, modal: true, buttons: {
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#f1').dialog({
+autoOpen: false, modal: true, buttons: {
+    Close: function() {
+        $(this).dialog('close');
+    }
+}
+});
+$('#quiz1btn').click(function() {
+    $('#quiz1').dialog('open');
+});
+
+//quiz2
+$('#quiz2').dialog({
+    autoOpen: false, modal: true, buttons: {
+        submit: function() {
+            var check_answer = document.querySelector('input[name="q2"]:checked').value;
+             if(check_answer==1) {
+                $('#r2').dialog('open');// do sth if it is correct
+                 flowercollection(followers[Math.floor(Math.random() * followers.length)], "quiz2");
+        } else {
+                $('#f2').dialog('open');// do sth if it is not correct
+        }},
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#r2').dialog({
+    autoOpen: false, modal: true, buttons: {
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#f2').dialog({
+autoOpen: false, modal: true, buttons: {
+    Close: function() {
+        $(this).dialog('close');
+    }
+}
+});
+$('#quiz2btn').click(function() {
+    $('#quiz2').dialog('open');
+});
+
+//quiz3
+$('#quiz3').dialog({
+    autoOpen: false, modal: true, buttons: {
+        submit: function() {
+            var check_answer = document.querySelector('input[name="q3"]:checked').value;
+             if(check_answer==2) {
+                $('#r3').dialog('open');// do sth if it is correct
+                 flowercollection(followers[Math.floor(Math.random() * followers.length)], "quiz3");
+        } else {
+                $('#f3').dialog('open');// do sth if it is not correct
+        }},
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#r3').dialog({
+    autoOpen: false, modal: true, buttons: {
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#f3').dialog({
+autoOpen: false, modal: true, buttons: {
+    Close: function() {
+        $(this).dialog('close');
+    }
+}
+});
+$('#quiz3btn').click(function() {
+    $('#quiz3').dialog('open');
+});
+
+//quiz4
+$('#quiz4').dialog({
+    autoOpen: false, modal: true, buttons: {
+        submit: function() {
+            var check_answer = document.querySelector('input[name="q4"]:checked').value;
+             if(check_answer==3) {
+                $('#r4').dialog('open');// do sth if it is correct
+                 flowercollection(followers[Math.floor(Math.random() * followers.length)], "quiz4");
+        } else {
+                $('#f4').dialog('open');// do sth if it is not correct
+        }},
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#r4').dialog({
+    autoOpen: false, modal: true, buttons: {
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#f4').dialog({
+autoOpen: false, modal: true, buttons: {
+    Close: function() {
+        $(this).dialog('close');
+    }
+}
+});
+$('#quiz4btn').click(function() {
+    $('#quiz4').dialog('open');
+});
+    
+//quiz5
+$('#quiz5').dialog({
+    autoOpen: false, modal: true, buttons: {
+        submit: function() {
+            var check_answer = document.querySelector('input[name="q5"]:checked').value;
+             if(check_answer==4) {
+                $('#r5').dialog('open');// do sth if it is correct
+                 flowercollection(followers[Math.floor(Math.random() * followers.length)], "quiz5");
+        } else {
+                $('#f5').dialog('open');// do sth if it is not correct
+        }},
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#r5').dialog({
+    autoOpen: false, modal: true, buttons: {
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#f5').dialog({
+autoOpen: false, modal: true, buttons: {
+    Close: function() {
+        $(this).dialog('close');
+    }
+}
+});
+$('#quiz5btn').click(function() {
+    $('#quiz5').dialog('open');
+});
+    
+//quiz6
+$('#quiz6').dialog({
+    autoOpen: false, modal: true, buttons: {
+        submit: function() {
+            var check_answer = document.querySelector('input[name="q6"]:checked').value;
+             if(check_answer==4) {
+                $('#r6').dialog('open');// do sth if it is correct
+                 flowercollection(followers[Math.floor(Math.random() * followers.length)], "quiz6");
+        } else {
+                $('#f6').dialog('open');// do sth if it is not correct
+        }},
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#r6').dialog({
+    autoOpen: false, modal: true, buttons: {
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#f6').dialog({
+autoOpen: false, modal: true, buttons: {
+    Close: function() {
+        $(this).dialog('close');
+    }
+}
+});
+$('#quiz6btn').click(function() {
+    $('#quiz6').dialog('open');
+});
+  
+//quiz7
+$('#quiz7').dialog({
+    autoOpen: false, modal: true, buttons: {
+        submit: function() {
+            var check_answer = document.querySelector('input[name="q7"]:checked').value;
+             if(check_answer==3) {
+                $('#r7').dialog('open');// do sth if it is correct
+                 flowercollection(followers[Math.floor(Math.random() * followers.length)], "quiz7");
+        } else {
+                $('#f7').dialog('open');// do sth if it is not correct
+        }},
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#r7').dialog({
+    autoOpen: false, modal: true, buttons: {
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#f7').dialog({
+autoOpen: false, modal: true, buttons: {
+    Close: function() {
+        $(this).dialog('close');
+    }
+}
+});
+$('#quiz7btn').click(function() {
+    $('#quiz7').dialog('open');
+});
+    
+//quiz8
+$('#quiz8').dialog({
+    autoOpen: false, modal: true, buttons: {
+        submit: function() {
+            var check_answer = document.querySelector('input[name="q8"]:checked').value;
+             if(check_answer==1) {
+                $('#r8').dialog('open');// do sth if it is correct
+                 flowercollection(followers[Math.floor(Math.random() * followers.length)], "quiz8");
+        } else {
+                $('#f8').dialog('open');// do sth if it is not correct
+        }},
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#r8').dialog({
+    autoOpen: false, modal: true, buttons: {
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#f8').dialog({
+autoOpen: false, modal: true, buttons: {
+    Close: function() {
+        $(this).dialog('close');
+    }
+}
+});
+$('#quiz8btn').click(function() {
+    $('#quiz8').dialog('open');
+});
+
+//quiz9
+$('#quiz9').dialog({
+    autoOpen: false, modal: true, buttons: {
+        submit: function() {
+            var check_answer = document.querySelector('input[name="q9"]:checked').value;
+             if(check_answer==1) {
+                $('#r9').dialog('open');// do sth if it is correct
+                 flowercollection(followers[Math.floor(Math.random() * followers.length)], "quiz9");
+        } else {
+                $('#f9').dialog('open');// do sth if it is not correct
+        }},
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#r9').dialog({
+    autoOpen: false, modal: true, buttons: {
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#f9').dialog({
+autoOpen: false, modal: true, buttons: {
+    Close: function() {
+        $(this).dialog('close');
+    }
+}
+});
+$('#quiz9btn').click(function() {
+    $('#quiz9').dialog('open');
+});
+    
+//quiz10
+$('#quiz10').dialog({
+    autoOpen: false, modal: true, buttons: {
+        submit: function() {
+            var check_answer = document.querySelector('input[name="q10"]:checked').value;
+             if(check_answer==2) {
+                $('#r10').dialog('open');// do sth if it is correct
+                 flowercollection(followers[Math.floor(Math.random() * followers.length)], "quiz10");
+        } else {
+                $('#f10').dialog('open');// do sth if it is not correct
+        }},
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#r10').dialog({
+    autoOpen: false, modal: true, buttons: {
+        Close: function() {
+            $(this).dialog('close');
+        }
+    }
+});
+$('#f10').dialog({
+autoOpen: false, modal: true, buttons: {
+    Close: function() {
+        $(this).dialog('close');
+    }
+}
+});
+$('#quiz10btn').click(function() {
+    $('#quiz10').dialog('open');
+});
+    
+
+//changeicon
+function beepass () {
+    setTimeout(function () {
+        $.getJSON($SCRIPT_ROOT + "/beeupdate/",
+            {message: "ok"},
+            function(data){
+            console.log(data.beePass);
+                if (data.beePass) {
+                    $("#nobee").attr("src", window.location.origin + "/static/img/FlowerBeevisitor.png");
+                    $('#btn').click(function() {
+                        $('#dialog1').dialog('open');
+                    });
+                } else {
+                    $("#nobee").attr("src", window.location.origin + "/static/img/ArtificialFlower.png")
+                    $('#btn').click(function() {
+                        $('#dialog4').dialog('open');
+                    });
+                }
+            }
+        );
+//===========================================================
+        beepass(); // !!!ATTENTION:indefinate loop
+//===========================================================
+    }, 1000);
+}
+
+beepass ();
+    
+ 
+
+ 
+</script>
+
+{% endblock %}

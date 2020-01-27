@@ -1,0 +1,267 @@
+{% extends "base.html" %}
+{% block body %}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+
+
+    .container-fluid {
+      width: 100vw;
+      margin: auto;
+      background-color: black;
+      height: 100vh;
+      color: black;
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: black;
+      position: relative;
+        width: 100vw;
+        height: 7vh;
+    }
+
+    #myLinks {
+      display: none;
+        position: fixed;
+        top: 7vh;
+        width: 100%;
+        height: 14vh;
+        background-color: gray;
+        left: 0;
+        
+    }
+
+    #myLinks>a{
+        color: white;
+        display: block;
+        width: 100%;
+        height: 50%;
+        left: 0;
+        text-align: left;
+        padding: 2.25vh 0 2.25vh 2vw;
+        justify-content: center;
+        font-size: 2.5vh;
+    }
+    
+    
+
+    .topnav a {
+      color: white;
+      padding: 1.7vh 0px;
+      text-decoration: none;
+      font-size: 17px;
+      display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .topnav a.icon {
+      background: black;
+      display: block;
+/*      position: absolute;*/
+      right: 0;
+      top: 0;
+        width: 100%;
+        text-align: center;
+        
+    }
+
+    .topnav a:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .active {
+      background-color: rgba(247,202,24,1);
+      color: white;
+        text-align: center;
+    }
+    
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-moz-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-o-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+  
+    #background {
+    width: 100vw;
+    height: 100vh;
+}
+
+    
+    
+/*
+    #quiz7, {
+        width: 50vw;
+        height: 50vh;
+    }
+*/
+/*ArtificialflowerDoc*/
+#artificialflowericoncontainer{
+    width: 100%;
+    height: 93vh;
+    background-color: black;
+}
+    #artificialflowericon {
+       padding-top: 12vh;
+         -webkit-animation: blink 2s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation: blink 2s;
+    -moz-animation-iteration-count: infinite;
+    -o-animation: blink 2s;
+    -o-animation-iteration-count: infinite;
+    }
+#text1{
+    padding-top: 2vh;
+    color: rgba(247,202,24, 1);
+    font-weight: bold;
+}
+
+    
+</style>
+
+
+<!-- Simulate a smartphone / tablet -->
+<div class="container-fluid">
+
+    <!-- Top Navigation Menu -->
+    
+    <div class="row">
+        <div class="topnav">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-2">
+                <button type="button" class="backicon"  onclick="window.location.href='{{ url_for( 'rolechoose') }}'"><img src="{{url_for('static', filename='img/backicon.png')}}" ></button>
+        </div>
+      <div class="col-xs-8 col-sm-8 col-md-8 col-8" style="padding-left: 0px; padding-right: 0px; height: 7vh;">
+            <a href="#home" class="active" id="title">My Artificial Flower</a>
+    </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-2">
+      
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+                </div>
+            
+            
+    </div>  
+    </div>
+
+    <!-- Bee list -->
+    <div id="artificialflowericoncontainer">
+        
+        <div class="row center-block text-center" id="artificialflowericon">
+            <img src="{{url_for('static', filename='img/ArtificialFlower.png')}}" width="240vw" height="260vh" id="beemonitor">
+        </div>
+        <div class="row center-block text-center" id="text1">
+            <p>Status: Connected</p>
+        </div>
+        <div class="row center-block text-center" id="text1">
+            <p id="beeCount">Count Bee: 0</p>
+        </div>
+
+    </div>
+     <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-12">
+            <div id="myLinks">
+        
+                 <a href="{{url_for('rolechoose')}}">Logout</a>
+        <a href="https://xd.adobe.com/view/9a9f1437-ca4f-45b2-433b-6e0755dfe5ea-ecae/?fullscreen&hints=off">Test Clickable Prototype</a>
+            </div>
+        </div>
+    </div>
+    <div style="padding-left:18px" id="nav_bottom">
+
+    </div>
+    
+<!--
+    <div id="beePass" style="display: none;">{{beePass}}</div>
+    <div id="flower" style="display: none;">{{url_for('static', filename='img/ArtificialFlower.png')}}}}</div>
+    <div id="bee" style="display: none;">{{url_for('static', filename='img/bee__2_.png')}}</div>
+-->
+    
+
+    <!-- End smartphone / tablet look -->
+</div>
+
+
+<script>
+    
+    // settings ----------------------------------------
+    var displayTime = 5000;
+    var refreshingTime = 2000; // This has to smaller than but as close as possible to timeDiff in server page beeupdate.
+    //--------------------------------------------------
+    
+    function myFunction() {
+      var x = document.getElementById("myLinks");
+      if (x.style.display === "block") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "block";
+      }
+    }
+    
+    function beepass () {
+        
+            $.getJSON($SCRIPT_ROOT + "/beeupdate/",
+                {message: "ok"},
+                function(data){
+                console.log(data.beePass);
+                    if (data.beePass) {
+                        
+                        $("#beeCount").text("Count Bee:" + data.beeCount);
+                        $("img#beemonitor").attr("src", window.location.origin + "/static/img/FlowerBeevisitor.png");
+                        
+                        setTimeout(function () {
+                            $("img#beemonitor").attr("src", window.location.origin + "/static/img/ArtificialFlower.png")
+                        }, displayTime);
+                        
+                    } 
+                })
+//===========================================================
+ // !!!ATTENTION:indefinate loop
+                setTimeout(function () {beepass();}, refreshingTime);
+//===========================================================
+    }
+    
+    beepass ();
+</script>
+
+
+
+
+    <!--customized JavaScripts-->
+   
+<!--    <script src="{{ url_for('static',filename='js/bee.js')}}"></script> start bee capture-->
+    <!--end of customized JavaScripts-->
+{% endblock %}

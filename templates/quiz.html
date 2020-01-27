@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% block body %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+
+.mobile-container {
+  max-width: 375px;
+  margin: auto;
+  background-color: #333;
+  height: 667px;
+  color: white;
+  border-radius: 10px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #555;
+  position: relative;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: rgba(247,202,24,1);
+  color: white;
+}
+
+#container 
+{
+    width:375px;
+    padding-top: 80px;
+/*
+    margin: 150px auto;
+    padding: 50px 30px;
+*/
+    background-color: #3f51b5;
+    border-radius:3px;
+    color: #fff;
+/*    box-shadow: 0 0 10px 0 #999;*/
+}
+.button 
+{
+    
+    width: 80px;
+    height: 25px;
+    text-align: center;
+    float:right;
+    background-color: #fff;
+    margin: 0 2px 0 2px;
+    cursor: pointer;
+}
+.button a 
+{
+    text-decoration: none;
+    color: #555;
+    line-height: 25px;
+}
+
+ul 
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 375px;
+}
+ul li
+{
+    background: #223394;
+    width: 200px;
+    margin: 10px;
+    padding: 5px;
+    display: inline-block; 
+}
+#prev 
+{
+    display:none;
+}
+#start 
+{
+    display:none;
+    width: 100px;
+}
+input[type="radio"]{
+    cursor: pointer;
+}
+</style>
+
+
+<!-- Simulate a smartphone / tablet -->
+<div class="mobile-container">
+
+    <!-- Top Navigation Menu -->
+    <div class="topnav">
+      <a href="#home" class="active">Bee Friendly Quiz</a>
+      <div id="myLinks">
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+
+    <!-- Bee list -->
+
+    <div id="container">
+        <div id="quiz"></div>
+        <div class="button" id="next"><a href="#">Next</a></div>
+        <div class="button" id="prev"><a href="#">Prev</a></div> 
+    </div>
+  
+    
+    <div style="padding-left:18px" id="nav_bottom">
+
+    </div>
+    
+
+    <!-- End smartphone / tablet look -->
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script src="/static/js/quiz.js"></script>
+
+
+{% endblock %}

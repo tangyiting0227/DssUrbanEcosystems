@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block body %}
+
+<style>
+#container2{
+    width: 100vw;
+    height: 100vh;
+}
+#background {
+    width: 100vw;
+    height: 100vh;
+}
+#popup{
+    position:relative;
+    width: 70vw;
+    height: 50vh;
+    top: -80vh;
+    left:22vw;
+    border-radius: 5%;
+    color:white;
+}
+    #t1{
+        padding-top: 5vh;
+        padding-left: 10vw;
+        padding-right: 11vw;
+        width: 90vw;
+        height: auto;
+        color: white;
+        font-weight: bold;
+    }
+    #name{
+        padding-top: 2vh;
+        color: white;
+        font-weight: bold;
+    }
+    #p1{
+        padding-top: 5vh;
+    }
+
+     #name>.col-xs-6:first-child {padding-right: 0;}
+    #name>.col-xs-6:last-child {padding-left: 2vw;}
+    
+    #p1>.col-xs-6:first-child {padding-left: 2vw;padding-right: 0;}
+    #p1>.col-xs-6:last-child {padding-left: 2vw;padding-right: 2vw;}
+    
+</style>
+
+<div id="container2">
+   
+    <img id="background" src="{{url_for('static', filename='img/building.png')}}">
+    <div class="row" id="popup">
+         <p>Welcome to the CityBuzz!<br>Please Clik the button and interact with our artificial flower!</p>
+    <div class="row" id="start">
+        <a class="pic"  href="{{ url_for( 'gardenerlogin') }}"><img src="{{url_for('static', filename='img/logingardener.png')}}" width="80vw" height="90vh" id="pic"></a>
+    </div>
+    </div>
+ 
+
+</div>
+
+{% endblock %}

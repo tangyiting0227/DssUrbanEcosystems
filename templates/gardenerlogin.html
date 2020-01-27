@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container-fluid" id="login">
+    
+    <div class="row">
+        <div class="col-xs-12" id="input_container">
+<!--            <center>-->
+            <div class="row" id="login_logo_container">
+                <div class="col-xs-12"><img src="{{url_for('static', filename='img/citizen.png')}}" id="login_logo" width="100vw" height="100vh"></div>
+            </div>
+
+            <div class="row" id="form_container">
+                <div class="col-xs-12">
+                    <form action="{{ url_for('userinfo') }}" method="post" name="registrationForm">
+                        
+                        <div class="row center-block" id="username">
+                            <div class="col-xs-12">
+                                <div class="row" id="username_intro">
+                                    <lable for="username" class="col-xs-12">User name:</lable>
+                                </div>
+                            </div>
+                            <div class="row" id="username_input">
+                                <div class="col-xs-12"><input type="text" name="username" value="" required></div>
+                            </div>
+                        </div>
+
+                        <div class="row center-block" id="email">
+                            <div class="col-xs-12">
+                                <div class="row" id="email_intro">
+                                    <lable for="email" class="col-xs-12">Email:</lable>
+                                </div>
+                            </div>
+                            <div class="row" id="email_input">
+                                <div class="col-xs-12"><input type="text" name="email" value="" required></div>
+                            </div>
+                        </div>
+
+                        <div class="row center-block" id="password">
+                            <div class="col-xs-12">
+                                <div class="row" id="password_intro">
+                                    <lable for="password" class="col-xs-12">Password:</lable>
+                                </div>
+                            </div>
+                            <div class="row" id="password_input">
+                                <div class="col-xs-12"><input type="password" name="password" value="" required minlength="8" title="minimum 8 digits"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="row" id="already">
+                            <div class="col-xs-12"><a href="{{url_for('gardenerlogin')}}" >Already have an account?</a></div>
+                        </div>
+
+
+                        <div class="row">
+                            <center><div class="col-xs-12"><input id="btn_login" type="submit" value="Login"></div></center>
+                        </div>
+                    </form>
+                                        
+                </div>
+            </div>
+<!--</center>-->
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
