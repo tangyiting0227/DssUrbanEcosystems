@@ -1,6 +1,13 @@
 # CityBuzz
 Urban Ecosystem Project at Digital Society School 
 
+Coach: Ilaria Zonda
+Programmer: Yiting Tang
+Teammates: Asli Erdem, Vivika Ekman, Mudita Singh
+Technical Support: Qizhang(Kevin) Sun
+Last Update: 29/01/2020
+
+
 ## About the Project
  The Urban Ecosystems Project focuses on the possibilities for the citizens to be an active part of making the cities green and help bees and other pollinators thrive in the city. Our team worked to create a digit-reality mobile game named CityBuzz, which involves the browser-based mobile game connected to the physical artificial flower. Through this game, the gardener and other citizens can be connected, and create a bee-friendly online community together.
  
