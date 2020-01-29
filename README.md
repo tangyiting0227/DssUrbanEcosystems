@@ -12,7 +12,7 @@ If you want to check the clickable prototype, click [here](https://xd.adobe.com/
 ### Two Personas
 * __The Gardeners__
 if you have an open space where you have your garden.
-* __The Pollinators __
+* __The Pollinators__
 if you don’t have an outdoor space or you want to travel and pollinate in the game.
 
 ### Basic Game rules
@@ -36,17 +36,23 @@ As a gardener, you need to plant flowers to complete the bee-friendly flower lis
     
 ### How to set up the testing demo
 __Step 1: Assemble the Artificial Flower components__
+
     (see the Artificial Flower Instruction Guide)
 
 __Step 2: Setup the Raspberry Pi__
+
     2.1 To install Raspbian on your SD card
+    
     2.2 Connect the raspberry pi with a monitor and keyboard
+    
     2.3 Connect the power to the raspberry pi and turn it on
+    
     2.4 Enable the pi camera
         1. Select Interfacing Options.
         2. Navigate to and select Camera.
         3. Choose Yes.
         4. Select OK.
+        
     2.5 Enable Wi-Fi
 
 __Step 3: Download the CityBuzz testing demo files from Github to the local__
@@ -95,9 +101,11 @@ Your bee will lose the health points if your don't get nectar from the game. Cli
 __4.3 Get nectar and flower fragments from artificial flower__
 /templates/artificialflowermap.html
 You can click the icon of bees in the map, the icon presents the artificial flower. After click the icon, you can choose one of the flowers which are planted in this rooftop garden. Then, you can get nectar and one flower fragment.
+
 __4.4 Take bee quiz__
 /templates/artificialflowermap.html
 You can take bee quiz by cliking quizmark icon. If your answer is right, you can get one flower fragment.
+
 __4.5 Check the flowers collection__
 /templates/artificialflowermap.html
 After you get flower fragment, you can go back beestatus page, check your flowers collection and the health points of your bee.
