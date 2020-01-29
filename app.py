@@ -135,7 +135,7 @@ def citizenuserinfo():
     db.session.commit() # confirm
     return render_template("choosebee.html", current_user=name)
 
-# example of sending info from frontend to backend in two steps
+# sending userinfo from frontend to backend 
 @app.route('/gardenerlogin/') # info input page
 def gardenerlogin():
     return render_template("gardenerlogin.html")
@@ -155,12 +155,14 @@ def userinfo():
 def ArtificialFlowerDoc():
     return render_template("ArtificialFlowerDoc.html")
 
+# Get bee name and image after user choose bee character
 @app.route('/beedatatransfer/')
 def beedatatransfer():
     img_name = request.args.get("img_name", 0, type=str)
     session["img_name"] = img_name
     return jsonify("success")
 
+# Bee monitor data
 @app.route('/cameradatatransfer/')
 def cameradatatransfer():
     current_time = datetime.now()
@@ -195,6 +197,7 @@ def beeupdate():
         beeCount = 0
     return jsonify({"beePass":beePass, "beeCount":beeCount})
 
+# Get flower collection data after user get flower from articialflower map
 @app.route('/flowercollection/')
 def flowercollection():
     flower = request.args.get("flower", 0, type=str)
@@ -205,6 +208,7 @@ def flowercollection():
     db.session.commit() # confirm
     return jsonify("seccess")
 
+# Display flower collection data after user get flower from articialflower map
 @app.route('/checkCollection/')
 def checkCollection():
     clts = Collection.query.\
@@ -228,21 +232,3 @@ if test_program == True:
     if __name__ == '__main__':
         app.run()
         
-
-
-# examples of reading data from database
-
-# select rows 
-#    whatever = []
-#    whatever = Registration.query.filter(Registration.userID=="Yiting").all()
-
-# select colomns 
-#    whatever = []
-#    whatever = Registration.query.with_entities(password).all()
-
-# select colomns and rows 
-#    whatever = []
-#    whatever = Registration.query.\
-#    filter(Registration.userID=="Yiting").\
-#    with_entities(password).\
-#    all()

@@ -156,29 +156,12 @@ input[type="submit"] {
 /*Beestatus*/
 
 
-/*
-#lifebar {
-    padding-left: -20px;
-}
-*/
+
 
 #healbutton {
     margin-top: 8px;
 }
-/*
-button.bt_heal {
-  background-color: #4B77BE;
-  border: none;
-  color: white;
-  padding: 1vh 3vw;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-    border-color: transparent;
-    border-radius: 5px;
-}
-*/
+
 button.bt_map {
   background-color: #4B77BE;
   border: none;
@@ -191,8 +174,6 @@ button.bt_map {
     border-color: transparent;
     border-radius: 5px;
 }
-
-
 
 
 /*Artificialflowermap*/
@@ -325,14 +306,6 @@ img.quizicon {
 }
 
 
-/*citizenachievement*/
-
-/*
-#achievementcontainer{
-    padding-top: 40px;
-}
-*/
-
 #hexygon-container{
     width: 15vw;
     height: 15vh;
@@ -361,10 +334,6 @@ img.quizicon {
     width: 24%;
     height: 15%;
     position: fixed;
-/*
-    -webkit-filter: grayscale(100%);  Safari 6.0 - 9.0 
-    filter: grayscale(100%);
-*/
 }
 
 
@@ -411,105 +380,4 @@ img.quizicon {
 }
 
 
-
-/*
-button.flowericon_nobee {
-  background-color: transparent;
-  border: none;
-  position:relative;
-  top: -200px;
-  left: 150px;    
-}
-
-img.nobeeicon {
-    border-radius: 10px;
-}
-
-button.flowericon_bee {
-  background-color: transparent;
-  border: none;
-  position:relative;
-  top: -200px;
-  left: 150px;    
-}
-
-img.beeicon {
-    border-radius: 10px;
-}
-*/
-
-/*Artificialflowermap_popup*/
-/* Popup container - can be anything you want */
-/*
-.popup {
-  position: relative;
-  top: -200px;
-  left: 150px; 
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-*/
-
-/* The actual popup */
-/*
-.popup .popuptext {
-  visibility: hidden;
-  width: 320px;
-  background-color: rgba(247,202,24, 1);
-  color: #fff;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: -12%;
-  margin-left: -80px;
-}
-*/
-
-/* Popup arrow */
-/*
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: rgba(247,202,24, 1) transparent transparent transparent;
-}
-*/
-
-/* Toggle this class - hide and show the popup */
-/*
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-*/
-
-/* Add animation (fade in the popup) */
-/*
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
-}
-*/
-/*
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
-}
-*/
-
-
-/*citizenachievement*/
-
-/*
 

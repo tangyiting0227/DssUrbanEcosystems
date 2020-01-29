@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block body %}
+<!--choose a bee character-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 
@@ -127,7 +128,7 @@
     </div>  
     </div>
 
-<!-- Bee list -->
+<!-- Bee list, change the bee images here -->
 <div id="Beelist">
     <div class="row" id="whole">
         <div class="col-xs-12" id="Beelist_container1">
@@ -230,7 +231,7 @@
         x.style.display = "block";
       }
     }
-    
+    //<!-- Get bee name and image to display in the beestatus page after you choose bee    -->
     $("img").click(function(){ //select all image tags as an object
         //action to this object when the object is clicked
         var full_path = $(this).attr("src");

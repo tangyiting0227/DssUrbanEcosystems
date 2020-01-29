@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block body %}
 
+<!--After login with the gardener account, you can see the realtime bee monitor-->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -120,15 +121,7 @@
     height: 100vh;
 }
 
-    
-    
-/*
-    #quiz7, {
-        width: 50vw;
-        height: 50vh;
-    }
-*/
-/*ArtificialflowerDoc*/
+
 #artificialflowericoncontainer{
     width: 100%;
     height: 93vh;
@@ -177,7 +170,7 @@
     </div>  
     </div>
 
-    <!-- Bee list -->
+    <!-- Bee monitor -->
     <div id="artificialflowericoncontainer">
         
         <div class="row center-block text-center" id="artificialflowericon">
@@ -204,17 +197,12 @@
 
     </div>
     
-<!--
-    <div id="beePass" style="display: none;">{{beePass}}</div>
-    <div id="flower" style="display: none;">{{url_for('static', filename='img/ArtificialFlower.png')}}}}</div>
-    <div id="bee" style="display: none;">{{url_for('static', filename='img/bee__2_.png')}}</div>
--->
-    
 
     <!-- End smartphone / tablet look -->
 </div>
 
 
+<!--change the time for icon display-->
 <script>
     
     // settings ----------------------------------------
@@ -259,9 +247,4 @@
 
 
 
-
-    <!--customized JavaScripts-->
-   
-<!--    <script src="{{ url_for('static',filename='js/bee.js')}}"></script> start bee capture-->
-    <!--end of customized JavaScripts-->
 {% endblock %}

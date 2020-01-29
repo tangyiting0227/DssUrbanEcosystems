@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% block body %}
+
+<!--You can change bee quiz and artificial flower here-->
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 
@@ -178,7 +181,7 @@
             
     </div>  
     </div>
-    <!-- Bee list -->
+    <!-- Artificial flower pop up, you can change flower images here -->
     <div class="row">
         <div id="Beelist">
 
@@ -244,6 +247,7 @@
 
     <!--                <div id="dialog2" title="Your honey bee got a fragment!">Congratulations! You got a fragment of Blacked Eye Susan and you get 10 points!</div>-->
                 </div>
+                <!-- Bee quizees -->
     <!--            quiz1-->
                 <div class="popup">
                     <button type="button" id="quiz1btn"><img src="{{url_for('static', filename='img/quizmark.png')}}" height="40" width="40" class="quizicon"></button>
@@ -401,6 +405,7 @@
 
         </div>
     </div>  
+    <!--    top menu-->
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-12">
             <div id="myLinks">
@@ -461,7 +466,7 @@ function myFunction() {
     }
     
     
-//nector
+//artificial flower popup
 $('#dialog1').dialog({
     autoOpen: false, modal: true, buttons: {
         close: function() {

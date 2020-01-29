@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% block body %}
+
+<!--Befor you go this page, you must login with a pollinator account-->
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 
@@ -140,7 +143,7 @@
     </div>  
     </div>
 
-<!-- Bee list -->
+<!-- Bee status, health points, bee image and name, before you go here, you must choose a bee in choosebee page -->
 <div id="Beelist">
     <div class="row" id="whole">
     <div class="row">
@@ -167,10 +170,11 @@
         </div>
     
     </div>
+<!-- Flowr collection, the hexgon will change after you collect the flower from artificial flower map       -->
     <div class="row" id='subtitle2'>My Flower Collection</div>
     <div id="achievementcontainer">
         
-            <!-- row 1 -->
+            <!-- flower images should same with the flower images in artificial flower map -->
             <div class="row"  id="row1">
                 <div class="col-xs-4">
                    <div id="hexygon-container" class="Helleborus">
@@ -243,6 +247,7 @@
                     <button type="button" class="bt_heal"  onclick="window.location.href='{{ url_for( 'choosebee') }}'">Choose Bee!</button>
                 </div>
 -->
+                <!-- Clik here direct to artificial flower page     -->
                 <div class="col-xs-12" id="healbutton">
                     <button type="button" class="bt_map"  onclick="window.location.href='{{ url_for( 'artificialflowermap') }}'">Get Nector!</button>
                 </div>
@@ -250,6 +255,7 @@
           
 </div>
 </div>
+     <!-- Top menu     -->
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-12">
             <div id="myLinks">
@@ -273,7 +279,7 @@
         x.style.display = "block";
       }
     }
-    
+//<!-- Get beename after you choose bee character     -->
     var url_link = function(){
         var img_link = window.location.origin + "/static/img/Beespecies/" + $("p#img_name").text() + ".jpg";
         console.log(img_link)
@@ -281,6 +287,7 @@
         $(".hexagon-in2").attr("src", img_link);
     }
     
+    //<!-- Get flower fragments after you visit artifiacial flower map    -->
     function checkCollection() {
         $.getJSON(
             $SCRIPT_ROOT + "/checkCollection/",
@@ -306,7 +313,7 @@
     url_link();
     checkCollection();
 
-    
+    //<!-- bee health points    -->
     function timeout() {
         setTimeout(function () {
             life_value = life_value - 1;
