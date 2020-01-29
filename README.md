@@ -23,21 +23,31 @@ As a gardener, you need to plant flowers to complete the bee-friendly flower lis
 
 * __The Gardeners__
 
-        1. Download the game on your phone and get an artificial flower, then you need to create an account as a gardener. 
-        2. You need to take the artificial flower to your rooftop garden and insert it in the soil among other flowers, install it and connect it with the game. 
-        3. As a part of your game, you need to plant the flowers of the bee-friendly flower list in the game. After you plant the flowers, take a photo and upload it to the app. You will unlock this flower on the list and get points.
-        4. Waiting the bees visit your garden, if the bees are visiting your garden, you will see the message in the game, and your artificial flower will light up in the artificial flower map.
-        5. Waiting for other citizens (the pollinators in the game) to visit your garden after your artificial flower will light up in the artificial flower map. If other citizens check-in your garden, you can get points.
+    1. Download the game on your phone and get an artificial flower, then you need to create an account as a gardener. 
+    
+    2. You need to take the artificial flower to your rooftop garden and insert it in the soil among other flowers, install it and connect it with the game. 
+    
+    3. As a part of your game, you need to plant the flowers of the bee-friendly flower list in the game. After you plant the flowers, take a photo and upload it to the app. You will unlock this flower on the list and get points.
+    
+    4. Waiting the bees visit your garden, if the bees are visiting your garden, you will see the message in the game, and your artificial flower will light up in the artificial flower map.
+    
+    5. Waiting for other citizens (the pollinators in the game) to visit your garden after your artificial flower will light up in the artificial flower map. If other citizens check-in your garden, you can get points.
 
 * __The Pollinators__
 
-        1. Download the game on your phone and create an account as a pollinator. 
-        2. Choose your bee character from the bee species list of the Netherlands.
-        3. Make sure your bee is not died by getting nectar from the gardens in the game.
-        4. Check the artificial flower map and see the artificial flowers lightened up in specific locations. 
-        5. Visit the location lightened up on the map and collect nectar and flower fragments from that garden. 
-        6. To collect more points, you can play daily challenges (e.g., take the bee quizzes.)
-        7. Help bee researchers find bees in Amsterdam. If you find a bee, take a photo and upload it to the app. You can share your findings with the community and get points.
+    1. Download the game on your phone and create an account as a pollinator. 
+    
+    2. Choose your bee character from the bee species list of the Netherlands.
+    
+    3. Make sure your bee is not died by getting nectar from the gardens in the game.
+    
+    4. Check the artificial flower map and see the artificial flowers lightened up in specific locations. 
+    
+    5. Visit the location lightened up on the map and collect nectar and flower fragments from that garden. 
+     
+    6. To collect more points, you can play daily challenges (e.g., take the bee quizzes.)
+    
+    7. Help bee researchers find bees in Amsterdam. If you find a bee, take a photo and upload it to the app. You can share your findings with the community and get points.
     
 ### How to set up the testing demo
 __Step 1: Assemble the Artificial Flower components__
@@ -74,7 +84,9 @@ __Step 5: Run the camera monitor page__
     
     e.g., http://127.0.0.1:5000/raspberrypi/
     
-    Here we use the model of teachable machine to recognize bees. Click [here](https://teachablemachine.withgoogle.com/) for more information about teachable machine.
+    Here we use the model of teachable machine to recognize bees. 
+    
+    Click [here](https://teachablemachine.withgoogle.com/) for more information about teachable machine.
     
     If you want to customize your bee monitor, you can go to /static/js/bee.js to change the model of teachable machine. 
 
@@ -108,7 +120,9 @@ __3.1 You will see the bee monitoring page__
 
     /templates/ArtificialFlowerDoc.html
     
-    If the bee is not detected by the camera, the screen will show the artificial flower icon. If the bee is detected by the camera, the screen will show the bee icon.
+    If the bee is not detected by the camera, the screen will show the artificial flower icon. 
+    
+    If the bee is detected by the camera, the screen will show the bee icon.
 
 __4. If you choose pollinator, create a pollinator account__
 
@@ -122,19 +136,27 @@ __4.2 Check the health status of your bee__
 
     /templates/beestatus.html
     
-    Your bee will lose the health points if your don't get nectar from the game. Click the icon of 'Get nectar', and you can go to Artificial flower map.
+    Your bee will lose the health points if your don't get nectar from the game. 
+    
+    Click the icon of 'Get nectar', and you can go to Artificial flower map.
 
 __4.3 Get nectar and flower fragments from artificial flower__
 
     /templates/artificialflowermap.html
     
-    You can click the icon of bees in the map, the icon presents the artificial flower. After click the icon, you can choose one of the flowers which are planted in this rooftop garden. Then, you can get nectar and one flower fragment.
+    You can click the icon of bees in the map, the icon presents the artificial flower. 
+    
+    After click the icon, you can choose one of the flowers which are planted in this rooftop garden. 
+    
+    Then, you can get nectar and one flower fragment.
 
 __4.4 Take bee quiz__
 
     /templates/artificialflowermap.html
     
-    You can take bee quiz by cliking quizmark icon. If your answer is right, you can get one flower fragment.
+    You can take bee quiz by cliking quizmark icon. 
+    
+    If your answer is right, you can get one flower fragment.
 
 __4.5 Check the flowers collection__
 
