@@ -2,9 +2,13 @@
 Urban Ecosystem Project at Digital Society School 
 
 Coach: Ilaria Zonda
+
 Programmer: Yiting Tang
+
 Teammates: Asli Erdem, Vivika Ekman, Mudita Singh
+
 Technical Support: Qizhang(Kevin) Sun
+
 Last Update: 29/01/2020
 
 
@@ -123,50 +127,50 @@ __3. If you choose gardener, create a gardener account__
 
     /templates/gardenerlogin.html
 
-__3.1 You will see the bee monitoring page__
+    __3.1 You will see the bee monitoring page__
 
-    /templates/ArtificialFlowerDoc.html
-    
-    If the bee is not detected by the camera, the screen will show the artificial flower icon. 
-    
-    If the bee is detected by the camera, the screen will show the bee icon.
+        /templates/ArtificialFlowerDoc.html
+
+        If the bee is not detected by the camera, the screen will show the artificial flower icon. 
+
+        If the bee is detected by the camera, the screen will show the bee icon.
 
 __4. If you choose pollinator, create a pollinator account__
 
     /templates/citizenrlogin.html
 
-__4.1 choose Your bee character__
+    __4.1 choose Your bee character__
 
-    /templates/choosebee.html
+        /templates/choosebee.html
 
-__4.2 Check the health status of your bee__
+    __4.2 Check the health status of your bee__
 
-    /templates/beestatus.html
-    
-    Your bee will lose the health points if your don't get nectar from the game. 
-    
-    Click the icon of 'Get nectar', and you can go to Artificial flower map.
+        /templates/beestatus.html
 
-__4.3 Get nectar and flower fragments from artificial flower__
+        Your bee will lose the health points if your don't get nectar from the game. 
 
-    /templates/artificialflowermap.html
-    
-    You can click the icon of bees in the map, the icon presents the artificial flower. 
-    
-    After click the icon, you can choose one of the flowers which are planted in this rooftop garden. 
-    
-    Then, you can get nectar and one flower fragment.
+        Click the icon of 'Get nectar', and you can go to Artificial flower map.
 
-__4.4 Take bee quiz__
+    __4.3 Get nectar and flower fragments from artificial flower__
 
-    /templates/artificialflowermap.html
-    
-    You can take bee quiz by cliking quizmark icon. 
-    
-    If your answer is right, you can get one flower fragment.
+        /templates/artificialflowermap.html
 
-__4.5 Check the flowers collection__
+        You can click the icon of bees in the map, the icon presents the artificial flower. 
 
-    /templates/artificialflowermap.html
-    
-    After you get flower fragment, you can go back beestatus page, check your flowers collection and the health points of your bee.
+        After click the icon, you can choose one of the flowers which are planted in this rooftop garden. 
+
+        Then, you can get nectar and one flower fragment.
+
+    __4.4 Take bee quiz__
+
+        /templates/artificialflowermap.html
+
+        You can take bee quiz by cliking quizmark icon. 
+
+        If your answer is right, you can get one flower fragment.
+
+    __4.5 Check the flowers collection__
+
+        /templates/artificialflowermap.html
+
+        After you get flower fragment, you can go back beestatus page, check your flowers collection and the health points of your bee.
