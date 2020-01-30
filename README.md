@@ -105,7 +105,7 @@ Followed by installing the artificial follower (for more information about artif
 2. Navigate to the root folder of CityBuzz files; and  
 3. Initialize the database by running `python initialDB.py` on the Raspberry Pi terminal; and  
 4. Start the local server by running `python app.py` on the Raspberry Pi terminal; and  
-5. Broadcast the local server using _ngrok_. To use _ngrok_, install [ngrok](ngrok.com) by following the instruction on the official website. Then, open another terminal and run ngrok by entering `./ngrok http 5000` in the terminal.   
+5. Broadcast the local server using _ngrok_. To use _ngrok_, install [ngrok](http://www.ngrok.com) by following the instruction on the official website. Then, open another terminal and run ngrok by entering `./ngrok http 5000` in the terminal.   
   
 __Now, the server is ready. Other players can access the website by the link provided by ngrok.__  
 
