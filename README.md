@@ -127,4 +127,9 @@ __A summary of folders and files__
 + app.py: Main back-end python file, including website flows and so on.
 + config.py: Configuration of the website, including security key, database path, and switch for debugging.
 + initialDB.py: Database initialization python file.
-+ models.py: Defining tables in the database
++ models.py: Defining tables in the database  
+  
+    
+__&#169; All rights about the design reserved by Yiting Tang, Asli Erdem, Vivika Ekman and Mudita Singh.__  
+__&#169; All rights about the interface program reserved by Yiting Tang and Qizhang (Kevin) Sun.__  
+__&#169; All rights about the artificial flower design reserved by Asli Erdem, Vivika Ekman and Mudita Singh.__  
